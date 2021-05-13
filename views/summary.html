@@ -5,10 +5,10 @@
     <title>Cupcakes!</title>
 </head>
 <body>
-  <p>Thank you, {{ @name }}, for your order!</p><br>
+  <p>Thank you, {{ @userName }}, for your order!</p><br>
   <p>Order Summary:</p>
   <ul>
-      <repeat value="{{ @flavor }}"group="{{ @userFlavors}}">
+      <repeat group="{{ @userFlavors}}" value="{{ @flavor }}">
           <li>{{ @flavor }}</li>
       </repeat>
   </ul><br>
