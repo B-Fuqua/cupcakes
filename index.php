@@ -32,7 +32,7 @@ $f3->route('GET|POST /', function($f3){
         //If name is valid
         if (validName($userName))
         {
-            $_SESSION[$userName] = $userName;
+            $_SESSION['userName'] = $userName;
         }
         else
         {
@@ -43,7 +43,7 @@ $f3->route('GET|POST /', function($f3){
         if (validFlavors($userFlavors))
         {
             //Get user input
-            $_SESSION[$userFlavors] = $userFlavors;
+            $_SESSION['userFlavors'] = $userFlavors;
             $numFlavors = count($userFlavors);
         }
         else

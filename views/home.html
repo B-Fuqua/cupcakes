@@ -27,7 +27,7 @@
             <label class="control-label">Cupcake flavors:</label><br>
             <repeat group="{{ @flavors }}" value="{{ @flavor }}">
                 <label><input type="checkbox"
-                              name="name[]"
+                              name="flavors[]"
                               value="{{ @flavor }}"
                     <check if="{{ in_array(@flavor, @userFlavors) }}">
                         checked = "checked"
