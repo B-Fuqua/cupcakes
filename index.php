@@ -44,8 +44,7 @@ $f3->route('GET|POST /', function($f3){
             $userFlavors = $_POST['flavors'];
             //Get user input
             $_SESSION['userFlavors'] = $userFlavors;
-            $numFlavors = count($userFlavors);
-            $_SESSION['total'] = $numFlavors * 3.50;
+            $_SESSION['total'] = number_format((double)count($userFlavors) * 3.50, 2);
         }
         else
         {
