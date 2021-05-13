@@ -20,6 +20,17 @@
             <input class="form-control" type="text" name="name" id="name" value="{{ @userName }}">
 
             <!-- Display an error message if there is one -->
+            <repeat group="{{ @flavors }}" value="{{ @flavor }}">
+                <label><input type="checkbox"
+                              name="name[]"
+                              value="{{ @flavor }}"
+                    <check if="{{ in_array(@flavor, @userFlavors) }}">
+                        checked = "checked"
+                    </check>
+                    > {{ @flavor }} </label><br>
+
+                </label>
+            </repeat>
             <check if="{{ isset(@errors['name']) }}">
                 <span class="err">{{ @errors['name'] }}</span>
             </check>
