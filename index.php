@@ -42,19 +42,19 @@ $f3->route('GET|POST /', function($f3){
         if (validFlavors($userFlavors))
         {
             //Get user input
-            $_SESSION[$userFlavors] = implode(",", $userFlavors);
+            $_SESSION[$userFlavors] = $userFlavors;
         }
         else
         {
             $f3->set('errors["flavors"]', 'Please select a flavor');
         }
+        //If there are no errors redirect to summary route
+        if (empty($f3->get('errors')))
+        {
+            header('location: summary');
+        }
     }
 
-    //If there are no errors redirect to summary route
-    if (empty($f3->get('errors')))
-    {
-        header('location: summary');
-    }
 
     //Get the flavors from the Model and send them to the View
     $f3->set('flavors', getFlavors());
