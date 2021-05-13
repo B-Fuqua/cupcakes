@@ -19,15 +19,14 @@ $f3 = Base::instance();
 //Define default route
 $f3->route('GET|POST /', function($f3){
 
-    $userFlavors = array();
+    $_SESSION = array();
+
     $userName = "";
-    $numFlavors = 0;
+    $userFlavors = array();
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST')
     {
-        $userFlavors = $_POST['flavors'];
         $userName = $_POST['name'];
-        $numFlavors = 0;
 
         //If name is valid
         if (validName($userName))
@@ -40,11 +39,13 @@ $f3->route('GET|POST /', function($f3){
         }
 
         //If flavors are selected
-        if (validFlavors($userFlavors))
+        if (validFlavors($_POST['flavors']))
         {
+            $userFlavors = $_POST['flavors'];
             //Get user input
             $_SESSION['userFlavors'] = $userFlavors;
             $numFlavors = count($userFlavors);
+            $_SESSION['total'] = $numFlavors * 3.50;
         }
         else
         {
@@ -64,7 +65,6 @@ $f3->route('GET|POST /', function($f3){
     //Store the user input in the hive
     $f3->set('userName', $userName);
     $f3->set('userFlavors', $userFlavors);
-    $f3->set('total', ($numFlavors * 3.50));
 
 
     //Display the home page

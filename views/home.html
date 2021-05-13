@@ -22,7 +22,7 @@
             <!-- Display an error message if there is one -->
             <check if="{{ isset(@errors['name']) }}">
                 <span class="err">{{ @errors['name'] }}</span>
-            </check>
+            </check><br>
 
             <label class="control-label">Cupcake flavors:</label><br>
             <repeat group="{{ @flavors }}" value="{{ @flavor }}">
