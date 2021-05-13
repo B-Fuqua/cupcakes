@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cupcakes!</title>
+</head>
+<body>
+  <p>Thank you, {{ @name }}, for your order!</p><br>
+  <p>Order Summary:</p>
+  <ul>
+      <repeat value="{{ @flavor }}"group="{{ @userFlavors}}">
+          <li>{{ @flavor }}</li>
+      </repeat>
+  </ul><br>
+  <p>Order Total: ${{ @total }}</p>
+
+</body>
+</html>

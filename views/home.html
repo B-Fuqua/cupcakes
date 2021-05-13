@@ -14,34 +14,30 @@
 <div class="container">
     <h1>Cupcake Fundraiser</h1>
     <form action="#" method="post">
-        <!-- get name -->
+        <!-- get food -->
         <div class="form-group">
             <label for="name" class="control-label">Your name:</label><br>
             <input class="form-control" type="text" name="name" id="name" value="{{ @userName }}">
 
             <!-- Display an error message if there is one -->
-            <check if="{{ isset(@errors['name']) }}">
-                <span class="err">{{ @errors['name'] }}</span>
-            </check>
-
-            <label class="control-label">Cupcake flavors: </label>
             <repeat group="{{ @flavors }}" value="{{ @flavor }}">
                 <label><input type="checkbox"
-                              name="flavors[]"
+                              name="name[]"
                               value="{{ @flavor }}"
                     <check if="{{ in_array(@flavor, @userFlavors) }}">
                         checked = "checked"
                     </check>
                     > {{ @flavor }} </label><br>
+
                 </label>
             </repeat>
-            <!-- Display an error message if there is one -->
-            <check if="{{ isset(@errors['flavors']) }}">
-                <span class="err">{{ @errors['flavors'] }}</span>
+            <check if="{{ isset(@errors['name']) }}">
+                <span class="err">{{ @errors['name'] }}</span>
             </check>
         </div>
         <br>
     </form>
+    <a type="button" class=" btn btn-success rounded">Order</a>
 </div>
 
 <!-- Option 1: Bootstrap Bundle with Popper -->
