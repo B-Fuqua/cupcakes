@@ -20,10 +20,12 @@ $f3->route('GET|POST /', function($f3){
 
     $userFlavors = array();
     $userName = "";
+    $numFlavors = 0;
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST')
     {
         $userFlavors = $_POST['flavors'];
+        $numFlavors = count($userFlavors);
         $userName = $_POST['name'];
 
         //If name is valid
@@ -60,6 +62,7 @@ $f3->route('GET|POST /', function($f3){
     //Store the user input in the hive
     $f3->set('userName', $userName);
     $f3->set('userFlavors', $userFlavors);
+    $f3->set('total', ($numFlavors * 3.50));
 
 
     //Display the home page
