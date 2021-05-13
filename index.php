@@ -11,6 +11,7 @@ session_start();
 //Require necessary files
 require_once ('vendor/autoload.php');
 require_once ('model/data-layer.php');
+require_once ('model/validation.php');
 
 //Instantiate Fat-Free
 $f3 = Base::instance();
@@ -25,8 +26,8 @@ $f3->route('GET|POST /', function($f3){
     if ($_SERVER['REQUEST_METHOD'] == 'POST')
     {
         $userFlavors = $_POST['flavors'];
-        $numFlavors = count($userFlavors);
         $userName = $_POST['name'];
+        $numFlavors = 0;
 
         //If name is valid
         if (validName($userName))
@@ -43,6 +44,7 @@ $f3->route('GET|POST /', function($f3){
         {
             //Get user input
             $_SESSION[$userFlavors] = $userFlavors;
+            $numFlavors = count($userFlavors);
         }
         else
         {

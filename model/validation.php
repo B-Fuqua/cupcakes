@@ -1,7 +1,7 @@
 <?php
 
 //Return true if a $name is valid
-function validFood($name)
+function validName($name)
 {
     return !empty($name);
 }
